@@ -1,0 +1,33 @@
+/* Shared theme for both pages (taken from Backprop Studio) */
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f3f4fa;--panel:#fff;--ink:#1b1c2a;--mute:#666a82;--line:#d8dbe9;--grid:#e1e4f0;
+--in:#2f6fe4;--hid:#7c4ddb;--out:#0e9f6e;--pos:#6366f1;--neg:#ea6a1a;--grad:#d98a04;--accent:var(--hid)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0b14;--panel:#12131f;--ink:#e8e9f5;--mute:#8d90aa;--line:#262840;--grid:#1a1b2c;
+--in:#4f8cff;--hid:#a67bff;--out:#25d08f;--pos:#8b8df8;--neg:#ff8a3d;--grad:#ffc23d}}
+:root[data-theme="dark"]{--bg:#0b0b14;--panel:#12131f;--ink:#e8e9f5;--mute:#8d90aa;--line:#262840;--grid:#1a1b2c;
+--in:#4f8cff;--hid:#a67bff;--out:#25d08f;--pos:#8b8df8;--neg:#ff8a3d;--grad:#ffc23d}
+
+/* faint dot grid behind everything, like the node editor canvas */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+background-image:radial-gradient(var(--grid) 1px,transparent 1px);background-size:20px 20px}
+
+/* top navigation (same on every page) */
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:8px 14px;background:var(--panel);border-bottom:1px solid var(--line)}
+.nav .brand{display:flex;align-items:center;font-weight:700;font-size:14px;color:var(--ink);text-decoration:none;margin-right:14px}
+.nav .brand i{width:9px;height:9px;border-radius:50%;background:var(--in);box-shadow:15px 0 0 var(--hid),30px 0 0 var(--out);margin-right:42px}
+.nav a.link{color:var(--mute);text-decoration:none;font-size:13px;padding:6px 12px;border-radius:8px;border:1px solid transparent}
+.nav a.link:hover{color:var(--ink);border-color:var(--line)}
+.nav a.link[aria-current="page"]{color:var(--ink);background:var(--bg);border-color:var(--hid)}
+.nav .sp,.bar .sp{flex:1}
+.nav button{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:4px 8px;cursor:pointer}
+.nav button:hover{border-color:var(--hid)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--hid);outline-offset:1px}
+
+/* page toolbar row under the nav */
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 12px;background:var(--panel);border-bottom:1px solid var(--line)}
+.bar .logo{font-size:15px}
+.bar .tag{font-size:11px;padding:2px 6px;border:1px solid var(--line);border-radius:4px;color:var(--mute)}
+.bar label{font-size:12px;color:var(--mute);display:flex;gap:6px;align-items:center}
+
+.foot{padding:4px 14px 20px;color:var(--mute);font-size:13px}
+.foot a{color:var(--hid);font-weight:600}
